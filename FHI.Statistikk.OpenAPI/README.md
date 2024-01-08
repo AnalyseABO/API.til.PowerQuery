@@ -62,7 +62,7 @@ https://statistikk-data.fhi.no/api/open/v1/nokkel/Table/173/dimension
 ```
 
 
-## Bygge spørringen i Power Query ("Post")
+## Bygge spørringen i Swagger ("Post")
 
 For å bygge selve spørringen trenger vi altså:
 •	sourceId – kode for statistikkbank
@@ -182,9 +182,143 @@ Etter «maxRowCount» kan du angi hvor mange rader du vil sette som maks i respo
 }
 ```
 
+---
+
 >[!NOTE]
 > ***Csv2 eller csv3 for Power Query?***
 >
 >Ett av csv-formatene er helt klart mest hensiktsmessig for bruk i Power Query. Dessverre er ingen av de to formatene helt ideelle. Csv2 gir forståelige tekster og krever lite bearbeiding. Problemet er at den geografiske variabelen blir oppgitt med kommunenavn, uten innbakt kommunenummer som hos SSB. Det kan bli problematisk hvis man ønsker å koble datasettet med et annet.  Med csv3 får man kommunenummer, men også lite menneskevennlige koder for de andre variablene. Muligens er det enkleste å laste inn dataene som csv2 for så å koble tabellen opp mot dimensjonsspørringen for regioner.
+
+---
+
+## Bygge spørringen i Power Query
+
+Selve spørringen i Power Query bygges opp ved a velg «Blank Query» og «Advanced Editor».
+Først i spørringen defineres to parametere. Det første etablerer URL-et det skal spørres mot. Dette kan vi finne under «Request URL» under «Responses» i Swagger.  Vi kaller parameteret for «url».
+
+```
+let
+    url = "https://statistikk-data.fhi.no/api/open/v1/nokkel/Table/173/data",
+```
+
+Det andre parameteret kaller vi «body» og inneholder selve spørringen vi nettopp laget, men med alle anførselstegn erstattet med doble anførselstegn (klipp og lim inn i notisblokk og søk og erstatt alle).   
+
+```
+    body = "
+
+		{
+		  ""dimensions"": [
+
+			{
+			  ""code"": ""AAR"",
+			  ""filter"": ""top"",
+			  ""values"": [
+				""3""
+			  ]
+			}
+		,
+
+			{
+				  ""code"": ""GEO"",
+				  ""filter"": ""all"",
+				  ""values"": [
+					""34*""
+				  ]
+			},
+
+			{
+				  ""code"": ""MEASURE_TYPE"",
+				  ""filter"": ""item"",
+				  ""values"": [
+					""RATE""
+				  ]
+			}
+		  ],
+
+		  ""response"": {
+			""format"": ""csv2"",
+			""maxRowCount"": 50000
+		  }
+		}
+
+	"
+,
+
+```
+
+
+Deretter limer vi inn en kodefnutt som bruker disse parameterne for å foreta spørringen. Så lenge man har definert «url» og «body» er det ikke nødvendig å endre denne koden.
+
+```
+    Response= 
+    Csv.Document(Web.Contents(url, 
+    [Content=Text.ToBinary(body), 
+    Headers=[#"Content-Type"="application/json"]]),
+    [Delimiter=";", 
+    Encoding=65001, 
+    QuoteStyle=QuoteStyle.None])
+in
+    Response
+```
+
+
+Sammensatt bør spørringen se omtrent slik ut:
+
+```
+let
+    url = "https://statistikk-data.fhi.no/api/open/v1/nokkel/Table/173/data",
+
+    body = "
+
+		{
+		  ""dimensions"": [
+
+			{
+			  ""code"": ""AAR"",
+			  ""filter"": ""top"",
+			  ""values"": [
+				""3""
+			  ]
+			}
+		,
+
+			{
+				  ""code"": ""GEO"",
+				  ""filter"": ""all"",
+				  ""values"": [
+					""34*""
+				  ]
+			},
+
+			{
+				  ""code"": ""MEASURE_TYPE"",
+				  ""filter"": ""item"",
+				  ""values"": [
+					""RATE""
+				  ]
+			}
+		  ],
+
+		  ""response"": {
+			""format"": ""csv2"",
+			""maxRowCount"": 50000
+		  }
+		}
+
+	"
+	
+	
+,
+    Response= 
+    Csv.Document(Web.Contents(url, 
+    [Content=Text.ToBinary(body), 
+    Headers=[#"Content-Type"="application/json"]]),
+    [Delimiter=";", 
+    Encoding=65001, 
+    QuoteStyle=QuoteStyle.None])
+in
+    Response
+```
+
 
 
