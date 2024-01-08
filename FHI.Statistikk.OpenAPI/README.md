@@ -19,9 +19,13 @@ FHI dokumenterer API-et i [Swagger](https://statistikk-data.fhi.no/swagger/index
 
 ---
 
+
+
+
 ## Hente oversikt over tabeller og variabler
 
 Før vi bygger API-spørringen for å hente dataene må vi hente inn noen parametere som må inn i spørringen. Enkleste måten å hente oversikt over tabeller og metadata er ved hjelp av [FHIs Swagger](https://statistikk-data.fhi.no/swagger/index.html).
+
 
 
 ### Hente oversikt over statistikkbanker
