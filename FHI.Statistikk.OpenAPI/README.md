@@ -10,10 +10,10 @@ FHI Statistikk Open API er fremdeles under utvikling og per dags dato (januar 20
 
 FHI dokumenterer API-et i [Swagger](https://statistikk-data.fhi.no/swagger/index.html) og [GitHub](https://github.com/folkehelseinstituttet/Fhi.Statistikk.OpenAPI#get-sources).
 
-### SWAGGER
+### Swagger
 [Swagger](https://statistikk-data.fhi.no/swagger/index.html) er en nettbasert tjeneste som dokumenterer API-er og lar brukere teste, og bygge API-spørringer. For å bygge API-spørringen bruker vi Swaggersiden til FHI aktivt.
 
-### GITHUB
+### GitHub
  FHI Statistikk Open API er også dokumentert på [Folkehelseinstituttets GitHub](https://github.com/folkehelseinstituttet/Fhi.Statistikk.OpenAPI#get-sources). Her finner man også en rekke kode-eksempler for bruk i ulike verktøy (men ikke Power Query).
 
 ---
@@ -51,10 +51,11 @@ https://statistikk-data.fhi.no/api/open/v1/nokkel/Table
 
 ### Hente oversikt over variabler/dimensjoner
 
-For å bygge spørringen må vi inkludere alle variabler (dimensjoner) i tabellen. Disse finner vi i tredje eller fjerde blokk under «Table». Forskjellen er at i fjerde blokk er verdiene organisert som et hierarki fremfor som vertikal liste. I tillegg er både kodene og tekstverdiene inkludert. Dersom man åpner URL-en i Power Query, er denne oversikten mer oversiktlig, imo.
+For å bygge spørringen må vi inkludere alle variabler (dimensjoner) i tabellen. Disse finner vi i tredje eller fjerde blokk under «Table». Hovedforskjellen er at i fjerde blokk er verdiene organisert som et hierarki fremfor som vertikal liste. I tillegg er både kodene og tekstverdiene inkludert. Dersom man åpner URL-en i Power Query, er denne oversikten mer oversiktlig, imo.
 
 I oversikten må vi ta med oss kodene for variablene/dimensjonene («code» eller «dimension.code»). I tillegg bør vi ha oversikt over de tilhørende verdiene og formatet på disse.
 
+eks:
 ```
 https://statistikk-data.fhi.no/api/open/v1/nokkel/Table/173/query
 https://statistikk-data.fhi.no/api/open/v1/nokkel/Table/173/dimension
