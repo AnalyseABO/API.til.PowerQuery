@@ -62,6 +62,79 @@ https://statistikk-data.fhi.no/api/open/v1/nokkel/Table/173/dimension
 ```
 
 
+## Bygge spørringen i Power Query ("Post")
 
+For å bygge selve spørringen trenger vi altså:
+•	sourceId – kode for statistikkbank
+•	tableId – kode for tabell
+•	koder for alle variabler i tabellen
+ Selve innholdet i spørringen følger denne semantikken: 
+
+```
+{
+  "dimensions": [
+    {
+      "code": "string",
+      "filter": "string",
+      "values": [
+        "string"
+      ]
+    }
+  ],
+  "response": {
+    "format": "string",
+    "maxRowCount": 0
+  }
+}
+```
+
+I første omgang bygger vi opp spørringen i Swagger-vinduet.
+Første bolk, «dimensions», definerer variablene, som defineres hver for seg, adskilt med komma. I kodesnutten må vi bytte ut hver forekomst av «string» for hver variabel.
+```
+{
+      "code": "string",
+      "filter": "string",
+      "values": [
+        "string"
+      ]
+    }
+```
+
+Verdien for «code» er koden for variablene vi hentet vi fra dimensjonsspørringen.
+
+«Filter» kan, som i SSB-spørringene, ha verdiene «item», «all» eller «top». Med «item» oppgir man verdien eller verdiene op varabelen, adskilt med komme. Med «all» kombinert med asterisk (*) i «values» returneres data for alle verdier av variabelen. Man kan også kombinere asterisk med tekst for å avgrense spørringen (f. eks «20*» for alle verdier som begynner med 20).
+
+I «values» oppgir vi hvilke verdier fra dimensjonstabellen vi vil spørre om. Verdiene må oppgis i formatet i «dimension values» i dimensjonsspørringen (f.eks «2016_2016» for årstallet 2016).
+
+```
+{
+  "dimensions": [
+    {
+      "code": "AAR",
+      "filter": "top",
+      "values": [
+        "3"
+      ]
+    },
+
+
+    {
+      "code": "GEO",
+      "filter": "all",
+      "values": [
+        "34*"
+      ]
+    },
+
+
+    {
+      "code": "MEASURE_TYPE",
+      "filter": "item",
+      "values": [
+        "RATE"
+      ]
+    }
+  ],
+```
 
 
