@@ -10,11 +10,12 @@ FHI Statistikk Open API er fremdeles under utvikling og per dags dato (januar 20
 
 FHI dokumenterer API-et i [Swagger](https://statistikk-data.fhi.no/swagger/index.html) og [GitHub](https://github.com/folkehelseinstituttet/Fhi.Statistikk.OpenAPI#get-sources).
 
-### Swagger
-[Swagger](https://statistikk-data.fhi.no/swagger/index.html) er en nettbasert tjeneste som dokumenterer API-er og lar brukere teste, og bygge API-spørringer. For å bygge API-spørringen bruker vi Swaggersiden til FHI aktivt.
-
-### GitHub
- FHI Statistikk Open API er også dokumentert på [Folkehelseinstituttets GitHub](https://github.com/folkehelseinstituttet/Fhi.Statistikk.OpenAPI#get-sources). Her finner man også en rekke kode-eksempler for bruk i ulike verktøy (men ikke Power Query).
+>[!TIP]
+>### Swagger
+>[Swagger](https://statistikk-data.fhi.no/swagger/index.html) er en nettbasert tjeneste som dokumenterer API-er og lar brukere teste, og bygge API-spørringer. For å bygge API-spørringen bruker vi Swaggersiden til FHI aktivt.
+>
+>### GitHub
+>FHI Statistikk Open API er også dokumentert på [Folkehelseinstituttets GitHub](https://github.com/folkehelseinstituttet/Fhi.Statistikk.OpenAPI#get-sources). Her finner man også en rekke kode-eksempler for bruk i ulike verktøy (men ikke Power Query).
 
 ---
 
@@ -194,14 +195,15 @@ Etter «maxRowCount» kan du angi hvor mange rader du vil sette som maks i respo
 ## Bygge spørringen i Power Query
 
 Selve spørringen i Power Query bygges opp ved a velg «Blank Query» og «Advanced Editor».
-Først i spørringen defineres to parametere. Det første etablerer URL-et det skal spørres mot. Dette kan vi finne under «Request URL» under «Responses» i Swagger.  Vi kaller parameteret for «url».
+Først i spørringen defineres tre parametere. Det to første henviser til statistikkbanken og tabellen vi vil spørre mot, med parametrene sourceId og tableId vi fant tidligere.
 
 ```
 let
-    url = "https://statistikk-data.fhi.no/api/open/v1/nokkel/Table/173/data",
+	sourceId = "nokkel",
+	tableId = "173",
 ```
 
-Det andre parameteret kaller vi «body» og inneholder selve spørringen vi nettopp laget, men med alle anførselstegn erstattet med doble anførselstegn (klipp og lim inn i notisblokk og søk og erstatt alle).   
+Det andre parameteret kaller vi «body» og inneholder selve spørringen vi nettopp laget, men med alle anførselstegn erstattet med doble anførselstegn (klipp og lim inn i notisblokk og søk og erstatt alle). Kodesnutten innledes med  *body = "* og avsluttes med *"*. 
 
 ```
     body = "
@@ -251,7 +253,7 @@ Deretter limer vi inn en kodefnutt som bruker disse parameterne for å foreta sp
 
 ```
     Response= 
-    Csv.Document(Web.Contents(url, 
+    sv.Document(Web.Contents("https://statistikk-data.fhi.no/api/open/v1/" & sourceId & "/Table/" & tableId & "/data",
     [Content=Text.ToBinary(body), 
     Headers=[#"Content-Type"="application/json"]]),
     [Delimiter=";", 
@@ -310,7 +312,7 @@ let
 	
 ,
     Response= 
-    Csv.Document(Web.Contents(url, 
+    sv.Document(Web.Contents("https://statistikk-data.fhi.no/api/open/v1/" & sourceId & "/Table/" & tableId & "/data",
     [Content=Text.ToBinary(body), 
     Headers=[#"Content-Type"="application/json"]]),
     [Delimiter=";", 
@@ -319,6 +321,7 @@ let
 in
     Response
 ```
+
 
 
 
