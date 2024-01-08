@@ -22,7 +22,7 @@ FHI dokumenterer API-et i [Swagger](https://statistikk-data.fhi.no/swagger/index
 
 
 
-## Hente oversikt over tabeller og variabler
+## #1 Hente oversikt over tabeller og variabler
 
 Før vi bygger API-spørringen for å hente dataene må vi hente inn noen parametere som må inn i spørringen. Enkleste måten å hente oversikt over tabeller og metadata er ved hjelp av [FHIs Swagger](https://statistikk-data.fhi.no/swagger/index.html).
 
@@ -67,7 +67,7 @@ https://statistikk-data.fhi.no/api/open/v1/nokkel/Table/173/dimension
 ```
 
 
-## Bygge spørringen i Swagger ("Post")
+## #2 Bygge spørringen i Swagger ("Post")
 
 For å bygge selve spørringen trenger vi altså:
 •	sourceId – kode for statistikkbank
@@ -196,7 +196,7 @@ Etter «maxRowCount» kan du angi hvor mange rader du vil sette som maks i respo
 
 ---
 
-## Bygge spørringen i Power Query
+## #3 Sette sammen spørringen i Power Query
 
 Selve spørringen i Power Query bygges opp ved a velg «Blank Query» og «Advanced Editor».
 Først i spørringen defineres tre parametere. Det to første henviser til statistikkbanken og tabellen vi vil spørre mot, med parametrene sourceId og tableId vi fant tidligere.
