@@ -107,7 +107,12 @@ Første bolk, «dimensions», definerer variablene, som defineres hver for seg, 
 
 Verdien for «code» er koden for variablene vi hentet vi fra dimensjonsspørringen.
 
-«Filter» kan, som i SSB-spørringene, ha verdiene «item», «all» eller «top». Med «item» oppgir man verdien eller verdiene op varabelen, adskilt med komme. Med «all» kombinert med asterisk (\*\) i «values» returneres data for alle verdier av variabelen. Man kan også kombinere asterisk med tekst for å avgrense spørringen (f. eks «20*» for alle verdier som begynner med 20).
+«Filter» kan, som i SSB-spørringene, ha verdiene 
+* item
+* all
+* top
+  
+Med «item» oppgir man verdien på varabelen (eller flere verdier adskilt med komma). Med «all» kombinert med asterisk (\*\) i «values» returneres data for alle verdier av variabelen. Man kan også kombinere asterisk med tekst for å avgrense spørringen (f. eks «20*» for alle verdier som begynner med 20).
 
 I «values» oppgir vi hvilke verdier fra dimensjonstabellen vi vil spørre om. Verdiene må oppgis i formatet i «dimension values» i dimensjonsspørringen (f.eks «2016_2016» for årstallet 2016).
 
