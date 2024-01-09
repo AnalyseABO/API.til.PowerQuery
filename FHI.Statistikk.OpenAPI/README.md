@@ -331,7 +331,7 @@ let
 	
 ,
     Response= 
-    sv.Document(Web.Contents("https://statistikk-data.fhi.no/api/open/v1/" & sourceId & "/Table/" & tableId & "/data",
+    Csv.Document(Web.Contents("https://statistikk-data.fhi.no/api/open/v1/" & sourceId & "/Table/" & tableId & "/data",
     [Content=Text.ToBinary(body), 
     Headers=[#"Content-Type"="application/json"]]),
     [Delimiter=";", 
