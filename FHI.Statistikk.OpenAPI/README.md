@@ -1,10 +1,14 @@
 # FHI Statistikk Open API for Power Query 
 ***For Dummies by Dummies***
 
+---
+
 
 ## Introduksjon
 
 FHI Statistikk Open API er et åpent API for å hente data fra [Folkehelseinstituttets statistikkbanker](https://statistikk.fhi.no/). Dette notatet er et supplement til FHIs dokumentasjon, særskilt rettet mot å opprette kobling til dataene i MS Power BI/Excel/Fabric gjennom Power Query-editoren. Både målgruppe og avsender er helt gjennomsnittlige dataanalytikere med noe, men begrensede IT- og kodekompetanse. Dersom man har erfaring med å hente data fra SSB gjennom API bør det være håndterbart med FHI API også, selv om man får mindre hjelp og må gjøre mer selv. For mer avansert dokumentasjon eller bruk i andre kodespråk/verktøy henviser vi til FHIs GitHub.
+
+
 
 FHI Statistikk Open API er fremdeles under utvikling og per dags dato (januar 2024) er det begrenset hvor mange datasett som er tilgjengeliggjort.
 
@@ -34,7 +38,7 @@ Første punkt er å hente en oversikt over de ulike statistikkbankene («sources
 Klikk på tekstboksen under overskriften «Common» for å utvide den. Klik på «Try it out» og «Execute».  
 I svaret man får vil man finne en web-adresse under «Request URL» som kan hentes inn i Power Query fra Web, dersom man ønske det.
 
-```
+```html
  https://statistikk-data.fhi.no/api/open/v1/Common/source
 ```
 
@@ -75,7 +79,7 @@ For å bygge selve spørringen trenger vi altså:
 •	koder for alle variabler i tabellen
  Selve innholdet i spørringen følger denne semantikken: 
 
-```
+```json
 {
   "dimensions": [
     {
@@ -95,7 +99,7 @@ For å bygge selve spørringen trenger vi altså:
 
 I første omgang bygger vi opp spørringen i Swagger-vinduet.
 Første bolk, «dimensions», definerer variablene, som defineres hver for seg, adskilt med komma. I kodesnutten må vi bytte ut hver forekomst av «string» for hver variabel.
-```
+```json
 {
       "code": "string",
       "filter": "string",
@@ -116,7 +120,7 @@ Med «item» oppgir man verdien på varabelen (eller flere verdier adskilt med k
 
 I «values» oppgir vi hvilke verdier fra dimensjonstabellen vi vil spørre om. Verdiene må oppgis i formatet i «dimension values» i dimensjonsspørringen (f.eks «2016_2016» for årstallet 2016).
 
-```
+```json
 {
   "dimensions": [
     {
@@ -154,7 +158,7 @@ I den andre bolken i kodesnutten angir vi formatet vi vil ha på de returnerte d
 
 Etter «maxRowCount» kan du angi hvor mange rader du vil sette som maks i responsen. Utelater du hele linjen settes verdien til uendelig.
 
-```
+```json
 {
   "dimensions": [
     {
@@ -212,7 +216,7 @@ let
 	tableId = "173",
 ```
 
-Det andre parameteret kaller vi «body» og inneholder selve spørringen vi nettopp laget, men med alle anførselstegn erstattet med doble anførselstegn (klipp og lim inn i notisblokk og søk og erstatt alle). Kodesnutten innledes med  *body = "* og avsluttes med *"*. 
+Det siste parameteret kaller vi «body» og inneholder selve spørringen vi nettopp laget, men med alle anførselstegn erstattet med doble anførselstegn (klipp og lim inn i notisblokk og søk og erstatt alle). Kodesnutten innledes med  *body = "* og avsluttes med *"*. 
 
 ```
     body = "
@@ -260,7 +264,7 @@ Det andre parameteret kaller vi «body» og inneholder selve spørringen vi nett
 
 Deretter limer vi inn en kodefnutt som bruker disse parameterne for å foreta spørringen. Så lenge man har definert «url» og «body» er det ikke nødvendig å endre denne koden.
 
-```
+```m
     Response= 
     sv.Document(Web.Contents("https://statistikk-data.fhi.no/api/open/v1/" & sourceId & "/Table/" & tableId & "/data",
     [Content=Text.ToBinary(body), 
@@ -275,7 +279,7 @@ in
 
 Sammensatt bør spørringen se omtrent slik ut:
 
-```
+```html
 let
     url = "https://statistikk-data.fhi.no/api/open/v1/nokkel/Table/173/data",
 
