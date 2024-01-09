@@ -146,7 +146,8 @@ I «values» oppgir vi hvilke verdier fra dimensjonstabellen vi vil spørre om. 
       "code": "MEASURE_TYPE",
       "filter": "item",
       "values": [
-        "RATE"
+        "RATE",
+	"SMR"
       ]
     }
   ],
@@ -184,7 +185,8 @@ Etter «maxRowCount» kan du angi hvor mange rader du vil sette som maks i respo
       "code": "MEASURE_TYPE",
       "filter": "item",
       "values": [
-        "RATE"
+        "RATE",
+	"SMR"
       ]
     }
   ],
@@ -246,7 +248,8 @@ Det siste parameteret kaller vi «body» og inneholder selve spørringen vi nett
 				  ""code"": ""MEASURE_TYPE"",
 				  ""filter"": ""item"",
 				  ""values"": [
-					""RATE""
+					""RATE"",
+					""SMR""
 				  ]
 			}
 		  ],
@@ -282,7 +285,8 @@ Sammensatt bør spørringen se omtrent slik ut:
 
 ```html
 let
-    url = "https://statistikk-data.fhi.no/api/open/v1/nokkel/Table/173/data",
+	sourceId = "nokkel",
+	tableId = "173",
 
     body = "
 
@@ -310,7 +314,8 @@ let
 				  ""code"": ""MEASURE_TYPE"",
 				  ""filter"": ""item"",
 				  ""values"": [
-					""RATE""
+					""RATE"",
+					""SMR""
 				  ]
 			}
 		  ],
