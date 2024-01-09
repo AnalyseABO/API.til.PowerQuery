@@ -1,6 +1,7 @@
 # FHI Statistikk Open API for Power Query 
 ***For Dummies by Dummies***
 
+
 ---
 
 
@@ -16,7 +17,7 @@ FHI dokumenterer API-et i [Swagger](https://statistikk-data.fhi.no/swagger/index
 
 >[!TIP]
 >### Swagger
->[Swagger](https://statistikk-data.fhi.no/swagger/index.html) er en nettbasert tjeneste som dokumenterer API-er og lar brukere teste, og bygge API-spørringer. For å bygge API-spørringen bruker vi Swaggersiden til FHI aktivt.
+>[Swagger](https://statistikk-data.fhi.no/swagger/index.html) er en nettbasert tjeneste som dokumenterer API-er og lar brukere teste, og bygge API-spørringer. For å bygge API-spørringen bruker vi [Swaggersiden til FHI](https://statistikk-data.fhi.no/swagger/index.html)  aktivt.
 >
 >### GitHub
 >FHI Statistikk Open API er også dokumentert på [Folkehelseinstituttets GitHub](https://github.com/folkehelseinstituttet/Fhi.Statistikk.OpenAPI#get-sources). Her finner man også en rekke kode-eksempler for bruk i ulike verktøy (men ikke Power Query).
