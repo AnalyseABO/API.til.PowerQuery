@@ -1,0 +1,56 @@
+let
+	sourceId = "nokkel",
+	tableId = "173",
+
+    body = "
+
+		{
+		  ""dimensions"": [
+
+			{
+			  ""code"": ""AAR"",
+			  ""filter"": ""top"",
+			  ""values"": [
+				""3""
+			  ]
+			}
+		,
+
+			{
+				  ""code"": ""GEO"",
+				  ""filter"": ""all"",
+				  ""values"": [
+					""34*""
+				  ]
+			},
+
+			{
+				  ""code"": ""MEASURE_TYPE"",
+				  ""filter"": ""item"",
+				  ""values"": [
+					""RATE"",
+					""SMR""
+				  ]
+			}
+		  ],
+
+		  ""response"": {
+			""format"": ""csv2"",
+			""maxRowCount"": 50000
+		  }
+		}
+
+	"
+	
+	
+,
+    Response= 
+    Csv.Document(Web.Contents("https://statistikk-data.fhi.no/api/open/v1/" & sourceId & "/Table/" & tableId & "/data",
+    [Content=Text.ToBinary(body), 
+    Headers=[#"Content-Type"="application/json"]]),
+    [Delimiter=";", 
+    Encoding=65001, 
+    QuoteStyle=QuoteStyle.None]),
+    #"Promoted Headers" = Table.PromoteHeaders(Response, [PromoteAllScalars=true])
+in
+    #"Promoted Headers"
