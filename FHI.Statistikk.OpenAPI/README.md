@@ -275,9 +275,10 @@ Deretter limer vi inn en kodefnutt som bruker disse parameterne for å foreta sp
     Headers=[#"Content-Type"="application/json"]]),
     [Delimiter=";", 
     Encoding=65001, 
-    QuoteStyle=QuoteStyle.None])
+    QuoteStyle=QuoteStyle.None]),
+    #"Promoted Headers" = Table.PromoteHeaders(Response, [PromoteAllScalars=true])
 in
-    Response
+    #"Promoted Headers"
 ```
 
 
@@ -336,9 +337,10 @@ let
     Headers=[#"Content-Type"="application/json"]]),
     [Delimiter=";", 
     Encoding=65001, 
-    QuoteStyle=QuoteStyle.None])
+    QuoteStyle=QuoteStyle.None]),
+    #"Promoted Headers" = Table.PromoteHeaders(Response, [PromoteAllScalars=true])
 in
-    Response
+    #"Promoted Headers"
 ```
 
 
