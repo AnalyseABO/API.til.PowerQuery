@@ -1,7 +1,8 @@
 # FHI Statistikk Open API for Power Query 
 ***For Dummies by Dummies***
 
-
+>[!IMPORTANT]
+>Dette dokumentet er utarbeidet uten tilknytning til eller kvalitetsikring fra FHI, og er forfattet uten særlig kompetanse. Feil, mangler og merksnodigheter kan forekomme. Alle korreksjoner, innspill og andre tilbakemeldinger tas i mot med åpne armer. Alt innhold er fritt å bruke og gjenbruke.
 ---
 
 
