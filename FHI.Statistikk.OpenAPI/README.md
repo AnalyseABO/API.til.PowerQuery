@@ -3,6 +3,12 @@
 
 >[!IMPORTANT]
 >Dette dokumentet er utarbeidet uten tilknytning til eller kvalitetsikring fra FHI, og er forfattet uten særlig kompetanse. Feil, mangler og merksnodigheter kan forekomme. Alle korreksjoner, innspill og andre tilbakemeldinger tas i mot med åpne armer. Alt innhold er fritt å bruke og gjenbruke.
+
+
+* Mal for å bruke API-spørringen i Power Query finnes [her](FHI.Statistikk.OpenAPI/FHI_API_til_PQ_mal)
+* Eksempelspørringer finnes her
+* Dimensjonstabell for geografiske enheter tilpasset FHI-data finnes snart
+
 ---
 
 
