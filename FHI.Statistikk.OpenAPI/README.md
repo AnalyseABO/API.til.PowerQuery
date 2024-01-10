@@ -126,7 +126,7 @@ Verdien for «code» er koden for variablene vi hentet vi fra dimensjonsspørrin
 * all
 * top
   
-Med «item» oppgir man verdien på varabelen (eller flere verdier adskilt med komma). Med «all» kombinert med asterisk (\*\) i «values» returneres data for alle verdier av variabelen. Man kan også kombinere asterisk med tekst for å avgrense spørringen (f. eks «20*» for alle verdier som begynner med 20).
+Med «item» oppgir man verdien på varabelen (eller flere verdier adskilt med komma). Med «all» kombinert med asterisk (\*\) i «values» returneres data for alle verdier av variabelen. Man kan også kombinere asterisk med tekst for å avgrense spørringen (f. eks «20*» for alle verdier som begynner med 20). Med "top" angir man et antall av de "øverste" verdiene av variabelen man ønsker å få returnert.
 
 I «values» oppgir vi hvilke verdier fra dimensjonstabellen vi vil spørre om. Verdiene må oppgis i formatet i «dimension values» i dimensjonsspørringen (f.eks «2016_2016» for årstallet 2016).
 
