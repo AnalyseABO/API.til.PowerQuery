@@ -44,6 +44,7 @@ Før vi bygger API-spørringen for å hente dataene må vi hente inn noen parame
 
 Første punkt er å hente en oversikt over de ulike statistikkbankene («sources») som er støttet hos FHI. 
 Klikk på tekstboksen under overskriften «Common» for å utvide den. Klik på «Try it out» og «Execute».  
+
 I svaret man får vil man finne en web-adresse under «Request URL» som kan hentes inn i Power Query fra Web, dersom man ønske det.
 
 ```html
