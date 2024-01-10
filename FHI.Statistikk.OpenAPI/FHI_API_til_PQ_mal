@@ -1,15 +1,17 @@
 let
-					/* fyll inn "sourceId" og "tableId" */
+
+/* fyll inn "sourceId" og "tableId" */
+
 	sourceId = "sourceId",
 	tableId = "tableId",
 
     body = "
 
-					/* lim inn spørringskoden fra Swagger. Husk doble anførselstegn! */
+/* lim inn spørringskoden fra Swagger. Husk doble anførselstegn! */
+
 
 	"
-	
-	
+
 ,
     Response= 
     Csv.Document(Web.Contents("https://statistikk-data.fhi.no/api/open/v1/" & sourceId & "/Table/" & tableId & "/data",
