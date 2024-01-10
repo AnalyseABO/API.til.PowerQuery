@@ -1,29 +1,13 @@
 let
+					/* fyll inn "sourceId" og "tableId" */
 	sourceId = "sourceId",
 	tableId = "tableId",
 
     body = "
 
-		**{**
-		 ** ""dimensions"": [**
+					/* lim inn json-koden fra Swagger. Husk doble anførselstegn! */
 
-			{
-			  ""code"": ""string"",
-			  ""filter"": ""string"",
-			  ""values"": [
-				""string""
-			  ]
-			}
-		
-		  ],
-
-		  ""response"": {
-			""format"": ""string"",
-			""maxRowCount"": 0
-		  }
-		}
-
-	"*
+	"
 	
 	
 ,
