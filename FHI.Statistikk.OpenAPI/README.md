@@ -85,6 +85,8 @@ For å bygge selve spørringen trenger vi altså:
 * sourceId – kode for statistikkbank
 * tableId – kode for tabell
 * koder for alle variabler i tabellen
+
+  
  Selve innholdet i spørringen følger denne semantikken: 
 
 ```json
