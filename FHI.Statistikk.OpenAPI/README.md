@@ -6,7 +6,7 @@
 
 
 * Mal for å bruke API-spørringen i Power Query finnes [her](FHI.Statistikk.OpenAPI/FHI_API_til_PQ_mal)
-* Eksempelspørringer finnes her
+* Eksempelspørringer finnes [her](FHI.Statistikk.OpenAPI/FHI_API_til_PQ_eksempler)
 * Dimensjonstabell for geografiske enheter tilpasset FHI-data finnes snart
 
 ---
