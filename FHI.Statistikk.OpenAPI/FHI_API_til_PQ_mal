@@ -5,7 +5,7 @@ let
 
     body = "
 
-					/* lim inn json-koden fra Swagger. Husk doble anførselstegn! */
+					/* lim inn spørringskoden fra Swagger. Husk doble anførselstegn! */
 
 	"
 	
