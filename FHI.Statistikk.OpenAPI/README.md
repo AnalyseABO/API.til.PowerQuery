@@ -7,7 +7,7 @@
 
 * Mal for å bruke API-spørringen i Power Query finnes [her](FHI.Statistikk.OpenAPI/FHI_API_til_PQ_mal)
 * Eksempelspørringer finnes [her](FHI.Statistikk.OpenAPI/FHI_API_til_PQ_eksempler)
-* Dimensjonstabell for geografiske enheter tilpasset FHI-data finnes snart
+* Dimensjonstabell for geografiske enheter tilpasset FHI-data finnes [her](FHI.Statistikk.OpenAPI/FHI_dim/dim_regioner_FHI.csv)
 
 ---
 
@@ -211,7 +211,7 @@ Etter «maxRowCount» kan du angi hvor mange rader du vil sette som maks i respo
 >[!NOTE]
 > ***Csv2 eller csv3 for Power Query?***
 >
->Ett av csv-formatene er helt klart mest hensiktsmessig for bruk i Power Query. Dessverre er ingen av de to formatene helt ideelle. Csv2 gir forståelige tekster og krever lite bearbeiding. Problemet er at den geografiske variabelen blir oppgitt med kommunenavn, uten innbakt kommunenummer som hos SSB. Det kan bli problematisk hvis man ønsker å koble datasettet med et annet.  Med csv3 får man kommunenummer, men også lite menneskevennlige koder for de andre variablene. Muligens er det enkleste å laste inn dataene som csv2 for så å koble tabellen opp mot dimensjonsspørringen for regioner.
+>Ett av csv-formatene er helt klart mest hensiktsmessig for bruk i Power Query. Dessverre er ingen av de to formatene helt ideelle. Csv2 gir forståelige tekster og krever lite bearbeiding. Problemet er at den geografiske variabelen blir oppgitt med kommunenavn, uten innbakt kommunenummer som hos SSB. Det kan bli problematisk hvis man ønsker å koble datasettet med et annet.  Med csv3 får man kommunenummer, men også lite menneskevennlige koder for de andre variablene. Muligens er det enkleste å laste inn dataene som csv2 for så å koble tabellen opp mot dimensjonsspørringen for regioner. En støtte-tabell for region-dimensjonen finner du også [her](FHI.Statistikk.OpenAPI/FHI_dim/dim_regioner_FHI.csv).
 
 ---
 
@@ -350,6 +350,6 @@ in
     #"Promoted Headers"
 ```
 
-
+Det var det.
 
 
