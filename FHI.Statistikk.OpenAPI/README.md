@@ -82,9 +82,9 @@ https://statistikk-data.fhi.no/api/open/v1/nokkel/Table/173/dimension
 ## #2 Bygge spørringen i Swagger ("Post")
 
 For å bygge selve spørringen trenger vi altså:
-•	sourceId – kode for statistikkbank
-•	tableId – kode for tabell
-•	koder for alle variabler i tabellen
+* sourceId – kode for statistikkbank
+* tableId – kode for tabell
+* koder for alle variabler i tabellen
  Selve innholdet i spørringen følger denne semantikken: 
 
 ```json
@@ -161,9 +161,9 @@ I «values» oppgir vi hvilke verdier fra dimensjonstabellen vi vil spørre om. 
 ```
 
 I den andre bolken i kodesnutten angir vi formatet vi vil ha på de returnerte dataene. Verdiene vi kan velge for format er «csv2», «csv3» og «json-stat2».
-•	csv2 returnerer data i csv-format med lesbare navn på verdiene for variablene
-•	csv3 returnerer data i csv-format med verdiene for variablene oppgitt som koder
-•	json-stat2 returnerer data i json-format som krever en del utpakking
+* csv2 returnerer data i csv-format med lesbare navn på verdiene for variablene
+* csv3 returnerer data i csv-format med verdiene for variablene oppgitt som koder
+* json-stat2 returnerer data i json-format som krever en del utpakking
 
 Etter «maxRowCount» kan du angi hvor mange rader du vil sette som maks i responsen. Utelater du hele linjen settes verdien til uendelig.
 
