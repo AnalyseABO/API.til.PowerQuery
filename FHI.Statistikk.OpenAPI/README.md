@@ -5,9 +5,9 @@
 >Dette dokumentet er utarbeidet uten tilknytning til eller kvalitetsikring fra FHI, og er forfattet uten særskilt kompetanse. Feil, mangler og merksnodigheter kan forekomme. Alle korreksjoner, innspill og andre tilbakemeldinger tas i mot med åpne armer. Alt innhold er fritt å bruke og gjenbruke.
 
 
-* Mal for å bruke API-spørringen i Power Query finnes [her](FHI.Statistikk.OpenAPI/FHI_API_til_PQ_mal)
+* Mal for å bruke API-spørringen i Power Query finnes [her](https://github.com/AnalyseABO/API.til.PowerQuery/blob/main/FHI.Statistikk.OpenAPI/FHI_API_til_PQ_mal)
 * Eksempelspørringer finnes [her](FHI.Statistikk.OpenAPI/FHI_API_til_PQ_eksempler)
-* Dimensjonstabell for geografiske enheter tilpasset FHI-data finnes [her](FHI.Statistikk.OpenAPI/FHI_dim/dim_regioner_FHI.csv)
+* Dimensjonstabell for geografiske enheter tilpasset FHI-data finnes [her](FHI.Statistikk.OpenAPI/FHI_dim/dim_regioner_FHI.csv) 
 
 ---
 
