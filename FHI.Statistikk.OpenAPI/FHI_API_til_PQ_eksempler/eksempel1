@@ -1,6 +1,6 @@
 let
 	sourceId = "nokkel",
-	tableId = "173",
+	tableId = "401",
 
     body = "
 
@@ -11,7 +11,7 @@ let
 			  ""code"": ""AAR"",
 			  ""filter"": ""top"",
 			  ""values"": [
-				""3""
+				""2""
 			  ]
 			}
 		,
@@ -20,10 +20,17 @@ let
 				  ""code"": ""GEO"",
 				  ""filter"": ""all"",
 				  ""values"": [
-					""34*""
+					""32**""
 				  ]
 			},
-
+				{
+					""code"": ""TYPE_VALG"",
+					""filter"": ""item"",
+					""values"": [
+						""KOMMUNEVALG"",
+						""STORTINGSVALG""
+					]
+					},
 			{
 				  ""code"": ""MEASURE_TYPE"",
 				  ""filter"": ""item"",
