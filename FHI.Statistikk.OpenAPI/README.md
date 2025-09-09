@@ -52,7 +52,7 @@ I svaret man får vil man finne en web-adresse under «Request URL» som kan hen
 ```
 
 
-I oversikten man får opp er det «source id» vi trenger å ta med oss videre. Foreløpig (januar 2024) er det stort sett bare under nøkkeltall («nokkel») det er publisert data. 
+I oversikten man får opp er det «source id» vi trenger å ta med oss videre. 
 
 
 ### Hente oversikt over tabeller ("Table")
