@@ -18,7 +18,7 @@ FHI Statistikk Open API er et åpent API for å hente data fra [Folkehelseinstit
 
 
 
-FHI Statistikk Open API er fremdeles under utvikling og per dags dato (januar 2024) er det begrenset hvor mange datasett som er tilgjengeliggjort.
+~~FHI Statistikk Open API er fremdeles under utvikling og per dags dato (januar 2024) er det begrenset hvor mange datasett som er tilgjengeliggjort.~~
 
 FHI dokumenterer API-et i [Swagger](https://statistikk-data.fhi.no/swagger/index.html) og [GitHub](https://github.com/folkehelseinstituttet/Fhi.Statistikk.OpenAPI#get-sources).
 
@@ -75,8 +75,11 @@ I oversikten må vi ta med oss kodene for variablene/dimensjonene («code» elle
 
 eks:
 ```
-https://statistikk-data.fhi.no/api/open/v1/nokkel/Table/173/query
-https://statistikk-data.fhi.no/api/open/v1/nokkel/Table/173/dimension
+https://statistikk-data.fhi.no/api/open/v1/nokkel/Table/360/dimension
+```
+
+```
+https://statistikk-data.fhi.no/api/open/v1/nokkel/Table/360/query
 ```
 
 
@@ -147,7 +150,7 @@ I «values» oppgir vi hvilke verdier fra dimensjonstabellen vi vil spørre om. 
       "code": "GEO",
       "filter": "all",
       "values": [
-        "34*"
+        "32*"
       ]
     },
 
@@ -186,7 +189,7 @@ Etter «maxRowCount» kan du angi hvor mange rader du vil sette som maks i respo
       "code": "GEO",
       "filter": "all",
       "values": [
-        "34*"
+        "32*"
       ]
     },
 
@@ -226,7 +229,7 @@ Først i spørringen defineres tre parametere. Det to første henviser til stati
 ```
 let
 	sourceId = "nokkel",
-	tableId = "173",
+	tableId = "360",
 ```
 
 Det siste parameteret kaller vi «body» og inneholder selve spørringen vi nettopp laget, men med alle anførselstegn erstattet med doble anførselstegn (klipp og lim inn i notisblokk og søk og erstatt alle). Kodesnutten innledes med  *body = "* og avsluttes med *"*. 
@@ -297,47 +300,68 @@ Sammensatt bør spørringen se omtrent slik ut:
 ```html
 let
 	sourceId = "nokkel",
-	tableId = "173",
+	tableId = "360",
 
     body = "
 
 		{
-		  ""dimensions"": [
-
-			{
-			  ""code"": ""AAR"",
-			  ""filter"": ""top"",
-			  ""values"": [
-				""3""
-			  ]
-			}
-		,
-
-			{
-				  ""code"": ""GEO"",
-				  ""filter"": ""all"",
-				  ""values"": [
-					""34*""
-				  ]
-			},
-
-			{
-				  ""code"": ""MEASURE_TYPE"",
-				  ""filter"": ""item"",
-				  ""values"": [
-					""RATE"",
-					""SMR""
-				  ]
-			}
-		  ],
-
-		  ""response"": {
-			""format"": ""csv2"",
-			""maxRowCount"": 50000
-		  }
-		}
-
-	"
+    ""dimensions"": [
+		      {
+		        ""code"": ""AAR"",
+		        ""filter"": ""top"",
+		        ""values"": [
+		          ""3""
+		        ]
+		      },
+		      {
+		        ""code"": ""KJONN"",
+		        ""filter"": ""item"",
+		        ""values"": [
+		          ""1"",
+		          ""2""
+		        ]
+		      },
+		      {
+		        ""code"": ""UTDANN"",
+		        ""filter"": ""item"",
+		        ""values"": [
+		          ""0"",
+		          ""1"",
+		          ""2"",
+		          ""3""
+		        ]
+		      },
+		            {
+		        ""code"": ""GEO"",
+		        ""filter"": ""all"",
+		        ""values"": [
+		          ""32*""
+		        ]
+		      },
+		      {
+		        ""code"": ""INNVKAT"",
+		        ""filter"": ""item"",
+		        ""values"": [
+		          ""0""
+		        ]
+		      },
+		      {
+		        ""code"": ""MEASURE_TYPE"",
+		        ""filter"": ""item"",
+		        ""values"": [
+		          ""RATE"",
+		          ""SMR"",
+		          ""MEIS"",
+		          ""TELLER""
+		        ]
+		      }
+    ],
+    ""response"": {
+      ""format"": ""csv2"",
+      ""maxRowCount"": 50000
+    }
+  }
+"
 	
 	
 ,
